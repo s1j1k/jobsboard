@@ -1,14 +1,8 @@
-//import('node-fetch');
-
-// const apiKey = 'b595a9db-0c76-45b1-b48c-fc0e2ceb06d3';
-// const url = `https://jooble.org/api/${apiKey}/`;
-
-
 var XMLHttpRequest = require('xhr2');
 
 const url = "https://jooble.org/api/";
 const key = "b595a9db-0c76-45b1-b48c-fc0e2ceb06d3";
-const params = "{ keywords: 'it', location: 'Bern'}";
+const params = "{ keywords: 'junior developer, entry level, software', location: 'Australia'}";
 
 async function fetchJooble(){
     const res = await fetch(url);

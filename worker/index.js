@@ -1,10 +1,10 @@
-import { CronJob } from 'cron';
+var CronJob  = require('cron').CronJob;
+
+const fetchJooble = require('./tasks/fetch-jooble.js')
 
 const job = new CronJob(
-    '* * * * * *', // cronTime
-    function () {
-        console.log('You will see this message every second');
-    }, // onTick
+    '*/1 * * * * *', // cronTime
+    fetchJooble, // onTick
     null, // onComplete
     true, // start
     'America/Los_Angeles' // timeZone

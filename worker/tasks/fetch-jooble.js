@@ -2,8 +2,6 @@ import('node-fetch');
 const baseURL = "https://jooble.org/api/";
 const key = "b595a9db-0c76-45b1-b48c-fc0e2ceb06d3";
 const url = baseURL + key;
-const keywords = "Junior Software Developer";
-const location = "Melbourne, Australia";
 const params = "{ keywords: 'Junior Software Developer', location: 'Melbourne, Australia'}";
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -21,3 +19,5 @@ async function fetchJooble(){
 }
 
 fetchJooble();
+
+module.exports = fetchJooble;

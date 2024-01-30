@@ -19,6 +19,7 @@ export async function fetchJooble(){
     let resultCount = 1, onPage = 1;
     const allJobs = [];
 
+    // fetch all pages
     while (resultCount > 0) {
         params["page"] = onPage;
         const res = await fetch(`${baseURL}${key}`, {method: 'POST', headers: myHeaders, body: JSON.stringify(params)});
@@ -30,10 +31,31 @@ export async function fetchJooble(){
         console.log('got', jobs.length, ' jobs');
         onPage++
     }
+
     console.log('got', allJobs.length, ' jobs');
-    const success = await client.set("jooble", JSON.stringify(allJobs));
+
+    // filter algo
+    const engJobs = allJobs.filter(job => {
+        const jobTitle = job.title.toLowerCase();
+        // algo logic
+        // check if it's an engineer job and make sure it's not a senior role
+        if (!jobTitle.includes("engineer") ||
+            jobTitle.includes("senior") ||
+            jobTitle.includes("manager") ||
+            jobTitle.includes("sr.") ||
+            jobTitle.includes("lead") ||
+            jobTitle.includes("principal")
+        ) {
+            return false
+        }
+        return true;
+    })
+
+    console.log('filtered down to', engJobs.length)
+
+    // set in redis
+    const success = await client.set("jooble", JSON.stringify(engJobs));
     console.log({success});
 }
 
-// testing only
-fetchJooble();
+fetchJooble()

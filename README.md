@@ -1,5 +1,9 @@
 # Jobs board app 
-MVP for junior dev jobs board.
+MVP for junior-mid level engineer jobs board app. NO senior / management jobs.
+To assist in the job search for less experienced engineers.
+All kinds of engineering is considered not just software.
+
+Jooble API used.
 
 Features:
 - React front end w/ Hooks

@@ -1,9 +1,10 @@
 var CronJob  = require('cron').CronJob;
 
-const fetchJooble = require('./tasks/fetch-jooble.js')
+
+const fetchJooble = require('./tasks/fetch-jooble.mjs')
 
 const job = new CronJob(
-    '*/1 * * * * *', // cronTime
+    '* * * * *', // cronTime
     fetchJooble, // onTick
     null, // onComplete
     true, // start

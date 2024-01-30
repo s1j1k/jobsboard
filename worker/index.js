@@ -1,7 +1,5 @@
-var CronJob  = require('cron').CronJob;
-
-
-const fetchJooble = require('./tasks/fetch-jooble.mjs')
+import {CronJob} from 'cron';
+import {fetchJooble} from './tasks/fetch-jooble.js';
 
 const job = new CronJob(
     '* * * * *', // cronTime

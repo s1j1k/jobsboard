@@ -1,4 +1,4 @@
-import("node-fetch");
+import "node-fetch";
 import {createClient} from "redis";
 
 const client = await createClient()
@@ -12,9 +12,9 @@ const params = "{ keywords: 'Junior Software Developer', location: 'Melbourne, A
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
-console.log("fetching jooble")
+console.log("fetching jooble");
 
-async function fetchJooble(){
+export async function fetchJooble(){
     const res = await fetch(`${baseURL}${key}`, {method: 'POST', headers: myHeaders, body: params});
     let jobs = await res.json();
     // get the array of jobs itself

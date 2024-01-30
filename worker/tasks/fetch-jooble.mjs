@@ -23,5 +23,3 @@ async function fetchJooble(){
     const success = await client.set("jooble", JSON.stringify(jobs));
     console.log({success});
 }
-
-fetchJooble()

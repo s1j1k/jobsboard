@@ -12,6 +12,7 @@ const client = await createClient()
 app.get('/jobs', async (req, res) => {
 
     const jobs = await client.get('jooble');
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 
     return res.send(jobs)
 

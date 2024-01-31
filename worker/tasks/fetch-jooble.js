@@ -8,7 +8,7 @@ const client = await createClient()
 const baseURL = "https://jooble.org/api/";
 const key = "b595a9db-0c76-45b1-b48c-fc0e2ceb06d3";
 // required for jooble API
-const params = { keywords: 'Engineer, Developer, Software, Computer', location: 'Australia'};
+const params = { keywords: 'Engineer, Developer, Software, Computer', location: ''};
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 

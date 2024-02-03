@@ -11,6 +11,9 @@ import JobModal from './JobModal';
 const N_JOBS_PER_PAGE = 50;
 
 export default function Jobs({jobs}) {
+
+
+
     // modal
     const [open, setOpen] = React.useState(false);
     const [selectedJob, selectJob] = React.useState({});
@@ -36,7 +39,7 @@ export default function Jobs({jobs}) {
 
     return (
         <div className="jobs">
-            <JobModal open={open} job={selectedJob} handleClose={handleClose()}/>
+            <JobModal open={open} job={selectedJob} handleClose={handleClose} />
             <Typography variant="h4" component="h1">
                 Entry Level Engineering Jobs
             </Typography>
@@ -45,7 +48,8 @@ export default function Jobs({jobs}) {
             </Typography>
             {
                 jobsOnPage.map(
-                    (job) => <Job job={job} onClick={() => {
+                    (job) => <Job key={job.id} job={job} onClick={() => {
+                        console.log("clicked")
                         handleClickOpen();
                         selectJob(job)
                     }

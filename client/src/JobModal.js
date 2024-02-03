@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,18 +8,18 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 
-const Transition = React.forwardRef(function Transition() {
-    return <Slide direction="up"/>;
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
 });
+
 export default function JobModal({job, open, handleClose}) {
 
     if (!job.title) {
-        return <div></div>
+        return <div/>
     }
 
     return (
         <React.Fragment>
-
             <Dialog
                 open={open}
                 TransitionComponent={Transition}

@@ -21,6 +21,7 @@ export default function Jobs({jobs}) {
         setOpen(false);
     };
 
+
     // pagination
     const numJobs = jobs.length;
     const numPages = Math.ceil(numJobs / N_JOBS_PER_PAGE);
@@ -42,7 +43,15 @@ export default function Jobs({jobs}) {
             <Typography variant="h6" component="h2">
                 Found {numJobs} Jobs
             </Typography>
-            {jobsOnPage.map(job => <Job job={job}>)}
+            {
+                jobsOnPage.map(
+                    (job) => <Job job={job} onClick={() => {
+                        handleClickOpen();
+                        selectJob(job)
+                    }
+                    } />
+                )
+            }
             <div>Page {activeStep + 1} of {numPages}</div>
 
             <MobileStepper

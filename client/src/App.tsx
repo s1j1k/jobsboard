@@ -4,7 +4,7 @@ import Jobs from './Jobs';
 
 const JOB_API_URL = 'http://localhost:3001/jobs';
 
-async function fetchJobs(updateCb: React.Dispatch<React.SetStateAction<any[]>>) {
+async function fetchJobs(updateCb: (a: any) => any) {
     try {
         const res = await fetch(JOB_API_URL);
         const json = await res.json();
@@ -19,7 +19,7 @@ function App() {
     const [jobList, updateJobs] = useState([]);
 
     useEffect(() => {
-        fetchJobs(updateJobs);
+        fetchJobs(updateJobs).then(() => {});
     }, []);
 
     return (

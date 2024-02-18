@@ -26,16 +26,19 @@ export default function JobModal({job, open, handleClose}) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+                <DialogTitle>
+                    {job.title} -
+                    {job.company}
+                    <img className={'detail-logo'} src={job.company_logo} />
+                </DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
-                    </DialogContentText>
+                    <DialogContentText id="alert-dialog-slide-description" dangerouslySetInnerHTML={{__html: job.snippet}} />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose}>Agree</Button>
+                    <Button onClick={handleClose}>Close</Button>
+                    <a href={job.link} target="_blank">
+                    <Button>Apply</Button>
+                    </a>
                 </DialogActions>
             </Dialog>
         </React.Fragment>

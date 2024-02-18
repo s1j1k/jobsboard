@@ -1,5 +1,5 @@
 # Jobs board app 
-MVP for junior-mid level engineer jobs board app. NO senior / management jobs.
+MVP for junior engineer jobs board app. NO senior / management jobs.
 To assist in the job search for less experienced engineers.
 All kinds of engineering is considered not just software.
 
